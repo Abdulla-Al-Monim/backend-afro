@@ -1,0 +1,3304 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 26, 2022 at 06:32 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `afro`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `abouts`
+--
+
+CREATE TABLE `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `page_name`, `created_at`, `updated_at`) VALUES
+(1, 'about', '2022-10-07 05:33:55', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_approach_banners`
+--
+
+CREATE TABLE `about_approach_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_approach_banners`
+--
+
+INSERT INTO `about_approach_banners` (`id`, `about`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'At HT we have three overarching values – Integrity, Partnership and Excellence.', '<p>From the clear imperatives of our legal responsibilities, to how we act towards people, inside and outside the business, our values guide and govern how we behave each day.</p>', 'uploads/about/afro1664970355.jpg', NULL, '2022-10-05 05:45:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_approach_excellences`
+--
+
+CREATE TABLE `about_approach_excellences` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `heading` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_approach_excellences`
+--
+
+INSERT INTO `about_approach_excellences` (`id`, `about`, `title`, `heading`, `button_text`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Excellence', 'We never forget that we are in the service industry and our constant goal is to be the best that a customer could choose.', 'sadf asdf', '<p>When our new management came on-board in 2015, excellence was enshrined as one of our values: it was time to match our ability to acquire and build towers with unrivaled service levels, price points and solution-led thinking for our customers.</p>\n\n<p>To accomplish this, we adopted Lean Six Sigma practices, recruiting &lsquo;Black belts&rsquo; to bring a fundamental change in our culture through a systematic approach to achieving excellence.</p>\n\n<h3>We have trained...</h3>\n\n<h3>31% of staff</h3>\n\n<p><img alt=\"of-staf\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABWCAYAAAAt6W9WAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAALiIAAC4iAari3ZIAAA2SSURBVHhe7d0FlCxHFQbgxd3dHRIIEAiuBwgOB/cQ3F2CS4I7BEhwCHI4eAgWnADBXYO7u7vdr3n30dv07s5M1byd6en/nP8kVf22Zrq75lZdrbXAlYPfDn4l+I0d/PpAmPfypaD7e3/wdME29gp+MvjN4Kz3nn/35R38avASwS6uHfxicGjPGd3P14JHBQ8Lrt0o+O/g34O/Cf42+LuB0P38Ouj+8KnBLl4TdO2vQf+2b5yt6Jn5238EjWWiHj/YxtGCrwu6/pfgrJ+1qPSs/xh0f35YazfY0XhB8HzB8w+I7mef4N+CXuTZgm1cKmgy/DJ41eB5g33jbMU9gsb6SdCzvGmwi92Cfwj+IljyWYtKz9pcMrlIrp0Ta3+NAeLgoPt7XtNaj1cHXXta0yrD9YLGIq2OraODxwRdf3HTGibOFSS9LY07J9ZjNQaGCwX/HPQr8otq4wLBPwWJ8LPqKIBlz4TyHG+lowfPDbp+SNMaJjxTy+LgJxbp4N681C5eGHTtGU2rDLcIGouCcBIdPbBceuiWwwvrGCBWYmKdPfj7HfRS27AnIMVsoj2MEhwreGTQM7yLjk2QUuvlTWt4WImJRRK5r5c0rfV4ftC1GvudawT/FaRun1jHJtg9aEJbnocotQY/sc4RtImk8XXtSaSXvZUlaU8dBWBCeF/Q83uojg6uHzzpf/93J54T9O9f2rSGhcFPrJRWbFRd5N6qT5JNC2YDY/0oeBodLVAImB/u0LT+B0qESc1uRrkYEgY9sc4dZLP6Z7ArrdiOcikq3VvBG4Ke3UOa1nqkeeETwePoaGGoUmvQE+txQffTJ61Y3l17UdMqw6WDvBU/D55ZRwtnDKaxFLly2jDBvQBL8pD2WoOdWKcNeqGWmUvqaMHSRJLRBC+ooxAprfrcRCSYa6zs/vueYNdomlLrZU1rGBjsxHpE0L0c3rTW4wlB1/jrSmFikjZ9bqJTBDm0KQ77Bjmlfe41g23QEI0xJA1xkBNL1MIPg+7lKjpaOEuQhd3LvoyOQvCr+pwDm9Z63Dfo2hFNa21tv2C2aZFtDG2vNciJldLqHcFj6mjhSUHX3ti0yuDhkTJ9CgBp9Z2gz+I7hFMHfxDUdy0dLdAQGXAtz0PQEAc3sUgrKr/7uJqOFljgfxYU4WDDXYqDgj6H2aKLewVd+0CQRT7xwKD+9waPoaOFtMYPYa/VO7EerbGkuGfQPbwz2F1unhh0zWb76DoKkAoAO1RXWnFE8xX6rOvqaIGNK6XWFXS0kBoiCbjsUosE/r+JRU33UpaNlh/uFPfQ3SBbhn4a5HKpIa2eEvQ5r21a63HboGsfD3alEjw46LoJ7nu3kXutVwS797dMpNTsnFgZQcpw+N0lpInj+38s2F5+4EHBfJmlIK3YrPoUgBMGvxD0WRuFzbBt/SrIcNv9e1KLFPT3ffe4LEzbXTOxbCjZWzK0dNnohdhD8cu1carg94NutKslzgK+QGP1mStuF3Tt88ET6NgATw76d31KBHuYidd3j8tCiogf3weDzYMQ+WeTu4zkcO4L1MuJwEnclWTTwiRN5WBvHS0cN/ipoGu30bEJ0uxBkbicjhaOF1zm95D0PkjnQYIFnmj2srsq/ixIS7pJ2lUAMiTZUriZtEqkMnFo0xqxVMiNMvW+a9OaFsJepMcZr6scmGQfDrp2bx0TwK/a1sNe6yI6RiwHNjNIzoI7B41FWnX9ffZ1rjGKnlzHhMi91pATKwaHewS9tD5j5LQQv562qZvraMG+7UNB17hxpgGpRemw4RUmPWLBQe2XLOlld5etWXD7oLFk4Nhct2ET7xqH8yl1TIn0N45SawmQyxabVuneyrKXKV2ycNqwt3pb0DW2sllAUoluILVqhPGMmBMkMuSyJfu5FDcJGktWL5NCG1cMusZ+dgYdMyKlVp/fccSCIKXVp4PdZWta+HtSz3h309EC1wWfpGsP01EA/kYSi59QSPWIBUN7k11DWgklNhZp1c2ysQx+Juh6d4mcBcKkjVUjzX9EZbSlVTdxYVrYm4npMt5Gtqk7BV2voXmKaBBKzbZFWxyxILD/UXOqlgQRz8V4KRq1m9KVYCvLgL5uGMy0IAGzvJHoiRELAiWDvBT+um5NqlmQ0kpE6mZ4VNC/e1XTKoMSSCYzP2I3hn7ENsCyl5vsrRzAk0Bmj5SuHwf5GzfDOYOMnDz63Uo2syClFqv8iG3GjYNeho27gL9SZHU/MfKTIDfek/77zdCWWqIgRmwT7K1SWnHjlOLiQdJKTNR5dEyAnAwk3Eb7sWnw+qD7eWTTGrEtaBswt6ryMgmkYBlv2npZ7w76O3H3pcjs6u8Fu0V4R+wC2FuJLfdCuwbMWSA02F7Jnkmw3TS4YdD3YNvqWuinBQ0xja991WtGzBkZriK2eqMKetNAfVLjzVKBhiaa8e4mWSnU2zKW0J+tFIgRFdE2YN5dRyG4UkiqkrJCmf389iCXTwlIrVxeR6m1C+HAg6ygN01w3UaQqOsllqS5nz5oAy+WnRJQipRa4uzF24+YM0iD/DVvZcCcBMoPqfFuw0zDK0GWSKoRX8VNpEKN8WooBSO2gDQuD1v+Wg31PivQvKlplYECYDmVsMl4WoqrB0nmWlrviE2QGtPDm1YZTExqvQTUy+qogLSe15CmNMyPBo13Vx0j5oOs9ynzuYa2tF/QeCJBbZhrQAAgKSP1rIa2mvXjhVt3w3dGVIA9x1uDHnJpcB2IUc8s6evoqIR2goXs6FK0w6OFBo2oDM5hSxbbDg2sFJnJ45i50niqLm4ZNPZHgn1n6kyLmwWNx2Y37rUqQ3UXD/eAplUG2cpZvrFbbqgGLIFMIZbEbq2uWWCvlSn8t9Yxog6YAVS8cyBAjQjLOwa9JC4Y6WLzQNaNqKFtQsaccbqXuo1G7EAe/fb0plWGEwUz2nSjckM1wD4m/EWSRI3ULj+A/N6WxhGFyMA7VfSmdQ73IeO3SKvSTJ6tkCUgn9W0ysF9ZTwHEsz7uw8arOw1pZWNtA218SRDzBsKfkhIVS+qRlkf0jazvEepVYCLBmmCAu/UXCpFVi78VrCGj3ESpIlk1mzpLhhKjccEUZqNtLLIQyxrSCsG0O3wvWV+Ii20hsGUuYGLx5h+KCOmRFbfpQnW8LtdKehlsIjvKmkF7WSPvgPIZ0FKrXcFSysVrhwy8K5GTQMG0CzgUcMONi2cuuqz1X4vjdUCXgPLuTG5uUZMCFECefJDjTNmJJTaq0lALSngMStkD4mr8h0ur6MCuLVMLJnYNSbrSiClVa3zZVKzlGC6XXA4g+9Q6/QJkRlZbFd4zYgtQFpl9ZUahsWLBUV12qt1zxTclRD+LFnDd9lNRwVknVVKySi1tkBtafXKoPGe2bS2F06d8F0e37TKoX6EcGhjjnutTcBWxcIuCrOGtCIZjMW1MmkC6jwhZ9AksNerlX2TZcIFGI5SawP4JXtINQ4Bh4ODxiMFFwG004zXr5FdBJJaSS3Z2KUx+4OEWgWSGmo9INJKSpc9zV46FgTpq3Q0Sq0oBQXbjCk9f0QHeVrDYU2rHPZUxrOvWSRIbj0q6LvlQZmlEErE7SW0qMYJZ4MBaZUHVXbPl5kFZwpy/C6atErkYZmMtrWQx931HSC1ssgULCdi1UhqSJtRjWN65wFGWulrln2O9hqg+OSRdd3T+1cSTu2ytxLGW0NaCU9Ry5OVm39wUaGijclfU7FIqaVm18ojXRO1pMsDgsaruczMA8pwZ6xWjZAg4KzPqNUaFQaXFpypsm6I7xrSynh5hK/6DosMNqesHlgjuTXBab/yUitPdhf+UQNZ8cXpnssQBJcJuM7iqZWMShKSWNxHK3n4kwoqylnbWwmGK4UAOC/Ii6qlxs8byjFlCr2Dymsh66Ku5DEqKa0kjJYepgR5grxDKWsnoM4TMoV8bxOsxnOA3L+RXHvoWBWQVjWP1WV0ZMk2nizkZYIlMA8iqHEgeoJbzJgrdYxKam5OLK3xK5UdbDyTSybLskHlHN+fcbNWcZI8/InWuRIHEki8VDpIrmCNX2g7pavGAQLbAZ4Hxk2RGDU33JmMMvgDCajY9wu6WeK/RpF8lWKMJ3OlRhbMdiHj0J7dtMpBcjvUwJgkFwk2WFj2hOa6WeQflNo160nuTApHBo11fx1LDJGuNGRLV0lcvgm0fzCTLVC5phrFSRYaEguYA94S9CDdOK+8/YWCrtOEkoj19vcUgZPpWHJkcut9mtbkYGohuUWGsF/lhJJ2JkNoO0OytwWs7QcF2w9DipQCY5MYDN8c9DfLLq0SuaxLo5/kFDMuHHHvWeIILXuOA2Z8raUILC3EE/EZZhF+tMGXVSO5og+1zmReJJhMnwu6LwGBfZCgSlIzgrJV5fNiB5PGPx5J1wMZyuxQRwTzgYmBPyRIurVjug8Nuq5G+5CQFWXkC7YlDkXH0S6ZVY0yxRWk47lQTG7EBNg7aKMvWC8f5OFBR4qYZH6tYppqaJaLBMZjm22OeWE/AhWVQ1LQN58DR7uM7pX0BdaCpVAgYFqnMfdkBwaHiAzTFleW94x+WJbIZTQCLywUtLWp/2zQQ2ZM3D04REhVoym7T9KLW2bP4Ig5wj7LnmKfpjVcqOq8b3BJa7uvrf0HMH5GLpAkXeAAAAAASUVORK5CYII=\" /></p>\n\n<p>...located mainly on the ground in our operating companies.</p>\n\n<p>We have also provided Six Sigma training to 7 maintenance partners. We have actively partnered with them, sharing their offices, exchanging new concepts and ideas, and moving our own team members into their operations. By making them better businesses, we&rsquo;re improving our own.</p>\n\n<p>For example, in 2021 we delivered 99.99% power uptime to our customers.</p>\n\n<p>This pursuit of excellence is also driving down both the costs and environmental impacts of the power we generate as well as reducing service visits.</p>', 'uploads/about/afro1664970729.png', NULL, '2022-10-05 05:52:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_approach_integrities`
+--
+
+CREATE TABLE `about_approach_integrities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_approach_integrities`
+--
+
+INSERT INTO `about_approach_integrities` (`id`, `about`, `title`, `heading`, `button_text`, `button_link`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Integrity', 'We subscribe to the tenet that integrity is “doing the right thing when no one is looking”.', 'READ MORE', 'https://afro-group.net/about/our-value-and-approach', '<p>Our business has been built on integrity, which is our default position in everything we do and say. We act with openness and transparency, always seeking to do the right thing and never compromising our standards for gain or advantage.</p>\r\n\r\n<p>Integrity defines us as human beings and how we interact with colleagues, customers, our partner-suppliers and communities. The Group is an equal opportunities employer and we treat all of our people fairly and with respect, whether they are full time, part time or temporary. We recruit, develop and promote employees on merit, regardless of gender, marital status, race, ethnic origin, colour, nationality, disability, religion, sexual orientation or age.</p>\r\n\r\n<p>Integrity also means complying with every applicable law, and creating an environment where everyone is encouraged to speak up if something isn&rsquo;t right.</p>', 'uploads/about/afro1666695405.png', NULL, '2022-10-25 04:57:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_approach_partnerships`
+--
+
+CREATE TABLE `about_approach_partnerships` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `heading` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_approach_partnerships`
+--
+
+INSERT INTO `about_approach_partnerships` (`id`, `about`, `title`, `heading`, `button_text`, `button_link`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Partnership', 'The most fruitful businesses tend to be built on partnerships: where each party respects and benefits from the other. At Afro Group we therefore invest in partnerships with each of our key stakeholders.', 'READ MORE', 'https://afro-group.net/about/our-value-and-approach', '<h3>suppliers</h3>\r\n\r\n<p>In many cases, our suppliers become an extension of our own business; in certain cases we share offices and embed our own people, breaking down silos and working in true partnership. We have also streamlined the number of suppliers we use, enabling us to focus better on each, invest in them, and drive up standards to the benefit of us all.</p>\r\n\r\n<h3>Our own people</h3>\r\n\r\n<p>We have an entrepreneurial culture that thrives through our people who feel they are partners in a common purpose. We value talent and seek to create not only jobs, but careers. We invest in our people through training focusing on skill development, and by offering competitive rewards. Occasionally, this includes mobilising suitable candidates within the Group&rsquo;s companies, helping to retain talent we have developed while offering interesting new assignments in contrasting markets. In 2017, we won two awards from TowerXchange, for our Lean Six Sigma and people development programmes.</p>\r\n\r\n<h3>Customers</h3>\r\n\r\n<p>Unlike many, we enter into contracts of typically 10-15 years&rsquo; duration with our customers. So, unlike client/supplier models characterised by ad hoc transactions or projects, we form partnerships for the long haul. In turn, this means constantly anticipating our customers&rsquo; needs, not only now but in years ahead, and never ceasing to drive up service levels and efficiencies. We regard customers as business partners; our futures are interdependent and we are proud of the emphatically positive feedback they communicate to us.</p>', 'uploads/about/afro1664970586.png', NULL, '2022-10-25 05:17:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_banners`
+--
+
+CREATE TABLE `about_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `default` int(11) NOT NULL DEFAULT 0 COMMENT '0 means image one means video 2 for youtube',
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `embedded` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_banners`
+--
+
+INSERT INTO `about_banners` (`id`, `about`, `title`, `default`, `image`, `video`, `link`, `embedded`, `created_at`, `updated_at`) VALUES
+(1, 1, 'About', 0, 'uploads/about/afroBanner1666018914.jpg', 'uploads/about/1666018915.mp4', NULL, NULL, NULL, '2022-10-17 09:01:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_businessmodel_banners`
+--
+
+CREATE TABLE `about_businessmodel_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_businessmodel_banners`
+--
+
+INSERT INTO `about_businessmodel_banners` (`id`, `about`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>We own and operate a fleet of over 9,500 towers and other passive infrastructure in Africa, and offer a variety of models to suit our customers&rsquo; requirements. Our main customers are multinational MNOs, including the Big-Five African MNOs, as well as high growth challengers.</p>', 'uploads/about/afroBanner1664970098.jpg', NULL, '2022-10-05 05:41:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_business_model_market_opportunities`
+--
+
+CREATE TABLE `about_business_model_market_opportunities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_business_model_market_opportunities`
+--
+
+INSERT INTO `about_business_model_market_opportunities` (`id`, `about`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(3, 1, 'Financial model', '<ul>\r\n	<li>Long-term contracts</li>\r\n	<li>Stable cash flows</li>\r\n</ul>', 'uploads/about/afro1665419964.png', '2022-10-10 10:39:25', NULL),
+(4, 1, 'Market context', '<ul>\r\n	<li>High growth markets with limited infrastructure in place</li>\r\n	<li>Significant future growth expected</li>\r\n</ul>', 'uploads/about/afro1665419988.png', '2022-10-10 10:39:48', NULL),
+(6, 1, 'Our people', '<ul>\r\n	<li>Localised workforce</li>\r\n	<li>Highly experienced management team</li>\r\n</ul>', 'uploads/about/afro1665420094.png', '2022-10-10 10:41:34', NULL),
+(7, 1, 'Strong relationships', '<ul>\r\n	<li>With customers and suppliers</li>\r\n	<li>Best-in-class customer experience</li>\r\n</ul>', 'uploads/about/afro1665420133.png', '2022-10-10 10:42:13', NULL),
+(8, 1, 'Innovation and technology', '<ul>\r\n	<li>Digital solutions</li>\r\n	<li>Innovative use of renewable power sources</li>\r\n</ul>', 'uploads/about/afro1665420152.png', '2022-10-10 10:42:32', NULL),
+(9, 1, 'Innovation and technology', '<ul>\r\n	<li>Digital solutions</li>\r\n	<li>Innovative use of renewable power sources</li>\r\n</ul>', 'uploads/about/afro1665421241.png', '2022-10-10 11:00:41', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_business_operations`
+--
+
+CREATE TABLE `about_business_operations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_business_operations`
+--
+
+INSERT INTO `about_business_operations` (`id`, `about`, `title`, `image`, `created_at`, `updated_at`) VALUES
+(3, 1, 'Tower space services', 'uploads/about/afro1665422754.png', '2022-10-10 11:25:55', NULL),
+(4, 1, 'Reliable power services', 'uploads/about/afro1665423276.png', '2022-10-10 11:34:36', NULL),
+(5, 1, 'Ancillary services', 'uploads/about/afro1665423287.png', '2022-10-10 11:34:47', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_business_stake_holders`
+--
+
+CREATE TABLE `about_business_stake_holders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_business_stake_holders`
+--
+
+INSERT INTO `about_business_stake_holders` (`id`, `about`, `title`, `text`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(6, 1, 'Computer', 'Knowledge platform', '<ul>\r\n	<li>Talented localised workforce in each market</li>\r\n	<li>Highly experienced management team</li>\r\n</ul>', 'uploads/about/afro1666114120.png', NULL, '2022-10-18 11:28:40'),
+(7, 1, 'Phone', 'Knowledge platform', '<ul>\r\n	<li>Talented localised workforce in each market</li>\r\n	<li>Highly experienced management team</li>\r\n</ul>', 'uploads/about/afro1666157951.png', NULL, '2022-10-18 23:39:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_business_strategies`
+--
+
+CREATE TABLE `about_business_strategies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_business_strategies`
+--
+
+INSERT INTO `about_business_strategies` (`id`, `about`, `title`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Driven by our sustainable business strategy', 'uploads/about/afro1665423329.jpg', NULL, '2022-10-10 11:35:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_governmance_banners`
+--
+
+CREATE TABLE `about_governmance_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_four` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_four` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_governmance_banners`
+--
+
+INSERT INTO `about_governmance_banners` (`id`, `about`, `title`, `description`, `button_text_one`, `button_link_one`, `button_text_two`, `button_link_two`, `button_text_three`, `button_link_three`, `button_text_four`, `button_link_four`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Corporate Governance', '<p>The Board is committed to the highest standards of corporate governance and sets the tone from the top with regard to values, purpose, culture and high standards of business conduct, which are emulated throughout the Group.</p>\r\n\r\n<p>The Board is supportive of and is committed to the Company&rsquo;s compliance with the UK Corporate Governance Code 2018 (&lsquo;the Code&rsquo;). As of 31 December 2021, the Board confirms that the Company has applied the principles and complied with the provisions set out in the Code.</p>\r\n\r\n<p>The Company has a governance framework that enables the Board and its Committees to be effective in their decision-making, which is integral to ensuring the successful delivery of the Company&rsquo;s strategy. The Board has established three Committees (Audit, Nomination and Remuneration) and has delegated responsibility for certain matters to them.</p>\r\n\r\n<p>The Board is comprised of the Chair, who was independent on appointment, five independent Non-Executive Directors (Sally Ashford, Alison Baker, Richard Byrne, Magnus Mandersson and Carole Wainaina) and two non-independent Non-Executive Directors (Temitope Lawani and Helis Zulijani-Boye). The Board regards Richard Byrne as independent notwithstanding his membership as a Director of the Board since 2010, and considers his continued membership of the Board is in the best interests of the Company. Magnus Mandersson is the Senior Independent Director. All Directors stand for annual re-election.</p>', 'Audit Committee', 'https://afro-group.net/', 'Audit Committee', 'https://afro-group.net/', 'Audit Committee', 'https://afro-group.net/', 'Audit Committee', 'https://afro-group.net/', 'uploads/about/afro1666691858.jpg', NULL, '2022-10-25 03:57:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_governmance_policies`
+--
+
+CREATE TABLE `about_governmance_policies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_four` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_four` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_five` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_five` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_six` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_six` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_seven` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_seven` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_eight` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_eight` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_governmance_policies`
+--
+
+INSERT INTO `about_governmance_policies` (`id`, `about`, `title`, `button_text_one`, `button_link_one`, `button_text_two`, `button_link_two`, `button_text_three`, `button_link_three`, `button_text_four`, `button_link_four`, `button_text_five`, `button_link_five`, `button_text_six`, `button_link_six`, `button_text_seven`, `button_link_seven`, `button_text_eight`, `button_link_eight`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', 'Environmental Policy', 'https://afro-group.net/about/governance-&-policies', NULL, '2022-10-25 04:20:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_management_teams`
+--
+
+CREATE TABLE `about_management_teams` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `join_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `committe` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `skill_xperience` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `appointment` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkenin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instra` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_management_teams`
+--
+
+INSERT INTO `about_management_teams` (`id`, `about`, `name`, `designation`, `join_date`, `committe`, `skill_xperience`, `other`, `appointment`, `fb`, `linkenin`, `twitter`, `instra`, `youtube`, `image`, `created_at`, `updated_at`) VALUES
+(2, 1, 'Rasel', 'Independent Chair', '2022-10-26', 'Nomination Committee (Chair) Remuneration Committee', '<p><em><strong>Tom Greenwood</strong></em>&nbsp;joined Helios Towers at company start-up in 2010 and was appointed CEO in April 2022. He previously held numerous Group roles including COO, CFO and Finance Director.</p>\r\n\r\n<p>In his tenure at Helios Towers so far, Tom has overseen all 16 major M&amp;A transactions, the expansion of the Group into 10 countries, the inaugural bond in 2017, the Initial Public Offering on the London Stock Exchange in 2019, and driving the Group&rsquo;s business excellence power uptime delivery to a record 99.99% in 2021.</p>\r\n\r\n<p>Tom joined Helios Towers from PwC and is a qualified Chartered Accountant of the Institute of Chartered Accountants of England and Wales.</p>', '<p><em><strong>Tom Greenwood</strong></em>&nbsp;joined Helios Towers at company start-up in 2010 and was appointed CEO in April 2022. He previously held numerous Group roles including COO, CFO and Finance Director.</p>\r\n\r\n<p>In his tenure at Helios Towers so far, Tom has overseen all 16 major M&amp;A transactions, the expansion of the Group into 10 countries, the inaugural bond in 2017, the Initial Public Offering on the London Stock Exchange in 2019, and driving the Group&rsquo;s business excellence power uptime delivery to a record 99.99% in 2021.</p>\r\n\r\n<p>Tom joined Helios Towers from PwC and is a qualified Chartered Accountant of the Institute of Chartered Accountants of England and Wales.</p>', 'other', 'https://afro-group.net/', 'https://afro-group.net/', 'https://www.facebook.com/', 'https://afro-group.net/', 'https://afro-group.net/', 'uploads/about/afro1666801654.png', NULL, '2022-10-26 10:27:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_overview_assets`
+--
+
+CREATE TABLE `about_overview_assets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_percentage_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_percentage_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_percentage_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_overview_assets`
+--
+
+INSERT INTO `about_overview_assets` (`id`, `about`, `title`, `text`, `site_one`, `site_percentage_one`, `site_two`, `site_percentage_two`, `site_three`, `site_percentage_three`, `button_text`, `button_link`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Our Assets', 'some text goes here', 'sites', '10694', 'sites', '5', 'sites', '1', 'Find out more about where we work', 'https://afro-group.net/about/strategy', NULL, '2022-10-25 06:12:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_overview_customers`
+--
+
+CREATE TABLE `about_overview_customers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `multinational_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `multinational_percentage_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `multinational_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `multinational_percentage_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_overview_customers`
+--
+
+INSERT INTO `about_overview_customers` (`id`, `about`, `heading`, `text`, `title`, `multinational_one`, `multinational_percentage_one`, `multinational_two`, `multinational_percentage_two`, `button_text`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Our Customers', 'asdfsad qwer', 'some text goes here', 'Multinational MNOs', '99', 'other operators', '1', 'Find out more about our customers', NULL, '2022-10-05 05:36:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_overview_dos`
+--
+
+CREATE TABLE `about_overview_dos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenancy_title_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenancy_percentage_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenancy_title_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenancy_percentage_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenancy_title_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenancy_percentage_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_overview_dos`
+--
+
+INSERT INTO `about_overview_dos` (`id`, `about`, `heading`, `title`, `description`, `tenancy_title_one`, `tenancy_percentage_one`, `tenancy_title_two`, `tenancy_percentage_two`, `tenancy_title_three`, `tenancy_percentage_three`, `button_text`, `button_link`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Afro Group(AG) owns and operates telecommunication towers and passive infrastructure in eight high-growth African markets.', 'What we do', '<p>Afro Group(AG) owns and operates telecommunication towers and passive infrastructure in eight high-growth African markets. Afro Group(AG) owns and operates telecommunication towers and owns and operates telecommunication passive infrastructure in eight high-growth African markets. Afro Group(AG) owns owns and operates telecommunication and operates telecommunication towers and passive infrastructure in eight high-growth African markets. Afro Group(AG) owns and operates telecommunication towers and passive infrastructure in eight high-growth African markets.</p>', 'YoY Tenancy growth is 02 22', '20', 'YoY Tenancy growth is 02 22', '24', 'YoY Tenancy growth is 02 22', '19', 'Find out more about solution', 'https://afro-group.net/about/strategy', '2022-10-25 05:17:06', '2022-10-25 06:05:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_overview_people`
+--
+
+CREATE TABLE `about_overview_people` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `footer` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_overview_people`
+--
+
+INSERT INTO `about_overview_people` (`id`, `about`, `title`, `description`, `footer`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Our People', '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.</p>', 'Afro Tower is not connected to HTN Towers Nigeria Ltd, and is a separate legal entity', 'uploads/about/afroBanner1664969848.png', NULL, '2022-10-05 05:37:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_reports`
+--
+
+CREATE TABLE `about_reports` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `text_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tilte_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_four` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_reports`
+--
+
+INSERT INTO `about_reports` (`id`, `about`, `text_one`, `title_one`, `text_two`, `tilte_two`, `image_one`, `title_three`, `image_two`, `title_four`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>Having a diverse and inclusive workforce makes us a stronger, more sustainable business. Diversity and inclusion is a key part of our strategy and developing a workforce that mirrors the communities we serve is key to our long-term success. We strive to create a work environment in which all employees feel equally valued and are supported to embody our values of Excellence, Integrity and Partnership.</p>\r\n\r\n<p>We believe this creates a competitive and commercial advantage by helping us to attract and retain talent, deliver better customer service, foster innovation and create value for all our stakeholders.</p>', 'Gender Pay', '<p>Although Afro Group is not obliged to report gender pay gap data as it has less than 250 employees, we are providing this information in the interest of transparency. We analysed the salaries of all Group employees including contractors as at 31 December 2021, as well as bonuses paid in respect of the 2021 financial year, and compared them to the prior year.</p>\r\n\r\n<p>While equal pay is about ensuring women and men are paid the same amount for the same job, the gender pay gap represents the difference between the average earnings of male and female colleagues across the workforce, expressed as a percentage of the average male earnings.</p>', 'Methodology', 'uploads/about/afro1666694790.jpg', 'Methodology', 'uploads/about/afro1666694790.jpg', 'Methodology', '<ul>\r\n	<li>The analysis includes all employees and contractors as of 31 December 2021.</li>\r\n	<li>alaries are calculated as an hourly wage. Where annual salaries are included in calculations of total pay, part-time employee salaries have been adjusted to a full-time equivalent basis.</li>\r\n	<li>All permanent employees with at least three months of service are eligible to receive an annual bonus prorated to their time of service during the year and based on Company and individual performance. To facilitate comparability, employees who joined during the financial year have been adjusted to a full-year equivalent basis. Bonuses awarded to part-time employees have been adjusted to a full-time equivalent basis. Contractors who are not eligible to receive an annual bonus have been excluded from the bonus calculations.</li>\r\n</ul>', NULL, '2022-10-25 04:46:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_strategies`
+--
+
+CREATE TABLE `about_strategies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `title_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_one_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_two_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `footer` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_strategies`
+--
+
+INSERT INTO `about_strategies` (`id`, `about`, `title_one`, `description_one`, `image_one`, `title_two`, `description_two`, `image_two`, `button_one_text`, `button_link_one`, `button_two_text`, `button_link_two`, `footer`, `created_at`, `updated_at`) VALUES
+(1, 1, 'A sustainable business to deliver on our purpose', '<p>Afro Group plays an important role in enabling connectivity and contributing to social and economic development in our markets</p>\r\n\r\n<p>The three pillars of our strategy build on our values of integrity. Partnership and Excellent and will help us to deliver on our purpose of driving the growth of communication in Africa</p>', 'uploads/about/afro1664970028.png', 'Business excellence and efficiency', '<ul>\r\n	<li>Resilience, continuity and innovation for long-term business performance and growth</li>\r\n</ul>\r\n\r\n<p>We will continue to grow our business sustainably and innovate for our customers needs,</p>\r\n\r\n<p>KPIs and target</p>\r\n\r\n<p>KPIs</p>\r\n\r\n<ul>\r\n	<li>Tenancies</li>\r\n	<li>Tenancies ration</li>\r\n	<li>Tenancies ration for new BTS</li>\r\n</ul>\r\n\r\n<p>Targets</p>\r\n\r\n<ul>\r\n	<li>Achieve an average one-minute downtime per tower by the end of 2025</li>\r\n	<li>46% carbon reduction per tenant by 2030</li>\r\n</ul>', 'uploads/about/afro1664970028.png', 'Read more about our strategy, KPIs and targets', 'https://afro-group.net/about/strategy', 'Road More about our contribution to the UN SDGs', 'https://afro-group.net/about/strategy', '<p>1 The Group has five years to achieve this milestone for any new network acquisition</p>\r\n\r\n<p>2 New Maintenance Partners have three years to achieve ISO 45001 from start of contract with HT</p>', NULL, '2022-10-25 05:56:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companies`
+--
+
+CREATE TABLE `companies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`id`, `home`, `name`, `Icon`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Nokia', NULL, '2022-10-13 05:44:38', NULL),
+(2, NULL, 'Ercson', NULL, '2022-10-14 10:56:54', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `phone`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'asif', 'email@gmail.com', 'f', '01723030645', 'asdfsdfsdafdsaf', '2022-09-29 02:18:11', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `footers`
+--
+
+CREATE TABLE `footers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `header_logos`
+--
+
+CREATE TABLE `header_logos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `homes`
+--
+
+CREATE TABLE `homes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `homes`
+--
+
+INSERT INTO `homes` (`id`, `page_name`, `created_at`, `updated_at`) VALUES
+(1, 'Home', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_academies`
+--
+
+CREATE TABLE `index_academies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon_three` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_three` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon_four` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_four` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `embedded` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_academies`
+--
+
+INSERT INTO `index_academies` (`id`, `title`, `icon_one`, `text_one`, `icon_two`, `text_two`, `icon_three`, `text_three`, `icon_four`, `text_four`, `link`, `embedded`, `image`, `home`, `created_at`, `updated_at`) VALUES
+(1, 'Practical GMS', 'uploads/index/afro1665423789.png', 'Practical GMS', 'uploads/index/afro1665423789.png', 'Power Disdribution', 'uploads/index/afro1665423789.png', '2G 3G 4G Troubleshoting and instllation', 'uploads/index/afro1665423789.png', 'How to deal with AC And DC current', 'https://www.youtube.com/watch?v=fPRF3bBdooA&ab_channel=RnaR', '<iframe src=\"https://www.youtube.com/embed/fPRF3bBdooA?rel=0&wmode=transparent\" width=\"560\" height=\"315\" allowfullscreen=\"\" frameborder=\"0\" sandbox=\"allow-scripts allow-same-origin allow-presentation\" layout=\"responsive\"></iframe>', 'uploads/index/afro1664035251.png', 1, NULL, '2022-10-10 11:43:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_approaches`
+--
+
+CREATE TABLE `index_approaches` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_approaches`
+--
+
+INSERT INTO `index_approaches` (`id`, `home`, `title`, `description`, `button_text`, `button_link`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Our Value & Approach', '<p>AFRO Group takes occupational Health &amp; Safety very seriously. The company understands that successful Health and Safety anagement involves integrating sound principles and practice into day-to-day management arrangements and that good performance levels are achieved by the collaborative effort of all employees and subcontractors.</p>', 'READ MORE', 'https://www.youtube.com/', 'uploads/index/afro1664967476.jpg', NULL, '2022-10-19 09:36:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_awards`
+--
+
+CREATE TABLE `index_awards` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_three` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_four` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_five` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_six` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_seven` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_eight` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_nine` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_awards`
+--
+
+INSERT INTO `index_awards` (`id`, `home`, `title`, `image_one`, `image_two`, `image_three`, `image_four`, `image_five`, `image_six`, `image_seven`, `image_eight`, `image_nine`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Award and Accolades', 'uploads/index/afro1664968657.jpg', 'uploads/index/afro1666622718.jpg', 'uploads/index/afro1664968657.jpg', 'uploads/index/afro1664968657.jpg', 'uploads/index/afro1664968657.jpg', 'uploads/index/afro1664968657.jpg', 'uploads/index/afro1664968658.jpg', 'uploads/index/afro1664968658.jpg', 'uploads/index/afro1664968658.jpg', 'uploads/index/AWARD.svg', '2022-09-29 08:37:58', '2022-10-24 08:45:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_headers`
+--
+
+CREATE TABLE `index_headers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `default` int(11) NOT NULL DEFAULT 0 COMMENT '0 means image one means video',
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_headers`
+--
+
+INSERT INTO `index_headers` (`id`, `home`, `title`, `heading`, `default`, `description`, `image`, `video`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Enterprise Solution', 'AFRO GROUP', 1, '<p>AFRO Telecom was initially formed in 2004 to deliver quality products and services to the MEA cellular network operators. Focusing on the power management niche, in which AFRO Telecom carved its reputation. AFRO foothold into 16 countries across the Middle East and Africa.</p>', 'uploads/index/afro1666020903.webp', 'uploads/index/1666020905.mp4', NULL, '2022-10-19 09:35:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_header_buttons`
+--
+
+CREATE TABLE `index_header_buttons` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `text_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_three` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_three` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_header_buttons`
+--
+
+INSERT INTO `index_header_buttons` (`id`, `home`, `text_one`, `link_one`, `text_two`, `link_two`, `text_three`, `link_three`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ABOUT US', 'https://test.afrosmart.net/about', 'WHERE WE WORK', 'https://test.afrosmart.net/where-we-work', 'SEE ALL VIDEOS', 'https://test.afrosmart.net/partners', 1, NULL, '2022-10-19 09:35:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_partners`
+--
+
+CREATE TABLE `index_partners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_partners`
+--
+
+INSERT INTO `index_partners` (`id`, `home`, `heading`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Carrier Products And Solutions', '<p>Facing the future, promoting the &amp;ldquo;All Cloud&amp;rdquo; strategy to enable digital transformation</p>', '2022-10-24 07:54:26', '2022-10-24 07:54:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_partner_sliders`
+--
+
+CREATE TABLE `index_partner_sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_partner_sliders`
+--
+
+INSERT INTO `index_partner_sliders` (`id`, `home`, `heading`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Carrier Products And Solutions', '<p>Facing the future, promoting the &ldquo;All Cloud&rdquo; strategy to enable digital transformation</p>', '2022-10-18 21:19:15', '2022-10-18 21:19:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_reviews`
+--
+
+CREATE TABLE `index_reviews` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) DEFAULT 1,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_reviews`
+--
+
+INSERT INTO `index_reviews` (`id`, `home`, `title`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Our customer Loves what we do', 'uploads/index/afro1664967836.png', NULL, '2022-10-19 09:36:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_review_sliders`
+--
+
+CREATE TABLE `index_review_sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_review_sliders`
+--
+
+INSERT INTO `index_review_sliders` (`id`, `home`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(3, 1, 'Abdulla al monim Rasel', '<p>We are very impressed by the level of service we received, Afro is the best enterprise solution. We are very impressed by the level of service we received, Afro is the best enterprise solution.</p>', 'uploads/index/afro1664968270.png', '2022-10-05 05:11:10', NULL),
+(4, 1, 'Borhan Uddin', '<p>We are very impressed by the level of service we received, Afro is the best enterprise solution. We are very impressed by the level of service we received, Afro is the best enterprise solution.</p>', 'uploads/index/afro1664968283.png', '2022-10-05 05:11:23', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_services`
+--
+
+CREATE TABLE `index_services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `heading` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_services`
+--
+
+INSERT INTO `index_services` (`id`, `home`, `heading`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'What We Do', 'uploads/index/afro1663998309.png', NULL, '2022-10-19 09:36:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_solutions`
+--
+
+CREATE TABLE `index_solutions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `heading` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_three` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_four` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_five` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_six` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_solutions`
+--
+
+INSERT INTO `index_solutions` (`id`, `home`, `heading`, `description`, `text_one`, `text_two`, `text_three`, `text_four`, `text_five`, `text_six`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Carrier Products and Solutions', 'Facing the future, promoting the “All Cloud”\r\nstrategy to enable digital transformation', 'Wireless Access Network', 'Fixed Access Networks', 'Transport Networks', 'Core Network', 'Networks Energy', 'Web Development', 'uploads/index/afro1663997280.png', NULL, '2022-10-19 09:35:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_subscribes`
+--
+
+CREATE TABLE `index_subscribes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `index_subscribes`
+--
+
+INSERT INTO `index_subscribes` (`id`, `email`, `ip`, `created_at`, `updated_at`) VALUES
+(1, 'email@gmail.com', NULL, '2022-09-29 02:18:02', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `indices`
+--
+
+CREATE TABLE `indices` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `leaders`
+--
+
+CREATE TABLE `leaders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` int(11) NOT NULL DEFAULT 1,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `join_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `committe` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `skill_xperience` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `other` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `appointment` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkenin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instra` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `leaders`
+--
+
+INSERT INTO `leaders` (`id`, `about`, `name`, `designation`, `join_date`, `committe`, `skill_xperience`, `other`, `appointment`, `image`, `fb`, `linkenin`, `twitter`, `instra`, `youtube`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Tom Greenwood', 'Chief Executive Officer', '2022-10-26', 'Nomination Committee (Chair) Remuneration Committee', '<p><em><strong>Tom Greenwood</strong></em>&nbsp;joined Helios Towers at company start-up in 2010 and was appointed CEO in April 2022. He previously held numerous Group roles including COO, CFO and Finance Director.</p>\r\n\r\n<p>In his tenure at Helios Towers so far, Tom has overseen all 16 major M&amp;A transactions, the expansion of the Group into 10 countries, the inaugural bond in 2017, the Initial Public Offering on the London Stock Exchange in 2019, and driving the Group&rsquo;s business excellence power uptime delivery to a record 99.99% in 2021.</p>\r\n\r\n<p>Tom joined Helios Towers from PwC and is a qualified Chartered Accountant of the Institute of Chartered Accountants of England and Wales.</p>', '<p><em><strong>Tom Greenwood</strong></em>&nbsp;joined Helios Towers at company start-up in 2010 and was appointed CEO in April 2022. He previously held numerous Group roles including COO, CFO and Finance Director.</p>\r\n\r\n<p>In his tenure at Helios Towers so far, Tom has overseen all 16 major M&amp;A transactions, the expansion of the Group into 10 countries, the inaugural bond in 2017, the Initial Public Offering on the London Stock Exchange in 2019, and driving the Group&rsquo;s business excellence power uptime delivery to a record 99.99% in 2021.</p>\r\n\r\n<p>Tom joined Helios Towers from PwC and is a qualified Chartered Accountant of the Institute of Chartered Accountants of England and Wales.</p>', 'other', 'uploads/about/afro1666800936.png', 'https://afro-group.net/', 'https://afro-group.net/', 'https://afro-group.net/', 'https://afro-group.net/', 'https://afro-group.net/', NULL, '2022-10-26 10:15:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `magazines`
+--
+
+CREATE TABLE `magazines` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `magazines`
+--
+
+INSERT INTO `magazines` (`id`, `home`, `heading`, `title`, `description`, `button_link`, `image`, `created_at`, `updated_at`) VALUES
+(8, 1, 'Business', 'Our Awards', '<p>AFRO Telecom was originally formed in 2004 to deliver quality products and services to the</p>', '#', 'uploads/index/afro1665812150.png', '2022-10-14 23:35:50', NULL),
+(10, 1, 'Business', 'Our Awards', '<p>AFRO Telecom was originally formed in 2004 to deliver quality products and services to the</p>', '#', 'uploads/index/afro1665812213.png', '2022-10-14 23:36:54', NULL),
+(11, 1, 'Business', 'Our Awards', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p>AFRO Telecom was originally formed in 2004 to deliver quality products and services to the</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '#', 'uploads/index/afro1665812267.png', '2022-10-14 23:37:47', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `management_teams`
+--
+
+CREATE TABLE `management_teams` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media`
+--
+
+CREATE TABLE `media` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `media`
+--
+
+INSERT INTO `media` (`id`, `title`, `description`, `image`, `video`, `created_at`, `updated_at`) VALUES
+(1, 'media', NULL, 'uploads/media/afro1666415471.jpg', 'uploads/media/1666415471.mp4', NULL, '2022-10-21 23:11:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2022_09_23_092135_create_header_logos_table', 2),
+(8, '2022_09_24_035112_create_index_header_buttons_table', 4),
+(9, '2022_09_24_045823_create_index_solutions_table', 5),
+(10, '2022_09_24_052958_create_index_services_table', 6),
+(13, '2022_09_24_082900_create_index_approaches_table', 8),
+(14, '2022_09_24_085703_create_index_reviews_table', 9),
+(15, '2022_09_24_091512_create_index_review_sliders_table', 10),
+(16, '2022_09_24_120139_create_index_academies_table', 11),
+(19, '2022_09_28_145447_create_index_magazines_table', 13),
+(20, '2022_09_28_145835_create_indices_table', 13),
+(21, '2022_09_28_151233_create_homes_table', 14),
+(22, '2022_09_29_072550_create_index_subscribes_table', 15),
+(23, '2022_09_29_072820_create_contacts_table', 15),
+(25, '2022_09_29_083213_create_index_awards_table', 16),
+(26, '2022_09_29_092631_create_magazines_table', 17),
+(27, '2022_09_29_095039_create_footers_table', 18),
+(28, '2022_10_02_081943_create_where_we_works_table', 18),
+(29, '2022_10_02_083621_create_banners_table', 18),
+(32, '2022_10_02_110141_create_where_work_videos_table', 21),
+(33, '2022_10_02_112303_create_where_work_overviews_table', 22),
+(34, '2022_10_02_114549_create_where_work_kps_table', 23),
+(38, '2022_10_02_144528_create_solution_colocations_table', 25),
+(39, '2022_10_02_151338_create_solution_builds_table', 26),
+(40, '2022_10_02_151358_create_solution_services_table', 26),
+(41, '2022_10_02_151435_create_solution_in_building_solutions_table', 26),
+(42, '2022_10_02_152153_create_solution_sales_table', 27),
+(43, '2022_10_03_043152_create_abouts_table', 28),
+(46, '2022_10_03_043619_create_about_overview_dos_table', 29),
+(47, '2022_10_03_054912_create_about_overview_assets_table', 30),
+(48, '2022_10_03_070808_create_about_overview_customers_table', 31),
+(49, '2022_10_03_072450_create_about_overview_people_table', 32),
+(50, '2022_10_03_074206_create_about_strategies_table', 33),
+(51, '2022_10_03_084906_create_about_businessmodel_banners_table', 34),
+(53, '2022_10_03_095706_create_about_business_model_market_opportunities_table', 35),
+(54, '2022_10_03_103555_create_about_business_operations_table', 36),
+(55, '2022_10_03_105104_create_about_business_strategies_table', 37),
+(60, '2022_10_04_063536_create_about_approach_banners_table', 41),
+(62, '2022_10_04_073048_create_about_approach_partnerships_table', 43),
+(63, '2022_10_04_074059_create_about_approach_excellences_table', 44),
+(70, '2022_10_05_044948_create_partnes_table', 48),
+(71, '2022_10_05_045923_create_partners_table', 49),
+(72, '2022_10_05_050002_create_partner_customers_table', 49),
+(73, '2022_10_05_050333_create_partner_workforces_table', 50),
+(74, '2022_10_05_050352_create_partner_suppliers_table', 50),
+(75, '2022_10_05_050409_create_partner_investors_table', 50),
+(76, '2022_10_05_050433_create_partner_communities_table', 50),
+(77, '2022_10_05_050504_create_partner_environments_table', 50),
+(80, '2022_10_05_065141_create_sustainability_images_table', 52),
+(81, '2022_10_05_070220_create_sustainability_propositions_table', 53),
+(82, '2022_10_05_071239_create_sustainability_materials_table', 54),
+(84, '2022_10_05_072638_create_sustainability_drivings_table', 55),
+(85, '2022_10_05_074341_create_sustainability_sustainables_table', 55),
+(86, '2022_10_05_075220_create_sustainability_governances_table', 56),
+(87, '2022_10_02_142352_create_solutions_table', 57),
+(88, '2022_10_05_063437_create_sustainabilities_table', 58),
+(89, '2014_10_12_000000_create_users_table', 59),
+(91, '2022_10_10_181431_create_user_roles_table', 60),
+(92, '2022_10_11_065659_create_theme_logos_table', 61),
+(93, '2022_10_11_154138_create_theme_footers_table', 62),
+(94, '2022_10_11_155445_create_theme_contacts_table', 63),
+(95, '2022_10_11_160601_create_theme_socialmedia_table', 64),
+(96, '2022_09_23_094352_create_themes_table', 65),
+(97, '2022_10_13_102320_create_companies_table', 66),
+(100, '2022_10_13_102350_create_regions_table', 67),
+(103, '2022_09_23_143549_create_index_headers_table', 70),
+(104, '2022_10_03_044526_create_about_banners_table', 71),
+(105, '2022_10_02_104752_create_where_work_banners_table', 72),
+(106, '2022_10_05_044724_create_partner_banners_table', 73),
+(107, '2022_10_02_142612_create_solution_banners_table', 74),
+(108, '2022_10_05_063458_create_sustainability_banners_table', 75),
+(109, '2022_10_03_175610_create_about_business_stake_holders_table', 76),
+(111, '2022_09_24_063747_create_service_sliders_table', 78),
+(112, '2022_10_18_142838_create_service_countries_table', 78),
+(113, '2022_10_19_023549_create_solution_products_table', 79),
+(114, '2022_10_19_023654_create_solution_product_sliders_table', 79),
+(115, '2022_09_28_143115_create_index_partner_sliders_table', 80),
+(117, '2022_10_22_043758_create_media_table', 81),
+(118, '2022_10_24_134746_create_index_partners_table', 82),
+(119, '2022_10_24_141344_create_s_countries_table', 83),
+(120, '2022_10_13_102409_create_projects_table', 84),
+(121, '2022_10_04_080221_create_about_governmance_banners_table', 85),
+(122, '2022_10_04_180313_create_about_governmance_policies_table', 86),
+(123, '2022_10_04_182300_create_about_reports_table', 87),
+(124, '2022_10_04_065044_create_about_approach_integrities_table', 88),
+(125, '2022_10_04_055316_create_leaders_table', 89),
+(126, '2022_10_04_062025_create_about_management_teams_table', 89),
+(127, '2022_10_26_155358_create_management_teams_table', 89);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partners`
+--
+
+CREATE TABLE `partners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partners`
+--
+
+INSERT INTO `partners` (`id`, `page_name`, `created_at`, `updated_at`) VALUES
+(1, 'Parter', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_banners`
+--
+
+CREATE TABLE `partner_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `partner` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `default` int(11) NOT NULL DEFAULT 0 COMMENT '0 means image one means video 2 for youtube',
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `embedded` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partner_banners`
+--
+
+INSERT INTO `partner_banners` (`id`, `partner`, `title`, `default`, `link`, `image`, `video`, `embedded`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Parter', 1, 'https://www.youtube.com/watch?v=fPRF3bBdooA&ab_channel=RnaR', 'uploads/partner/afroBanner1666019822.webp', 'uploads/partner/1666019823.mp4', '<iframe src=\"https://www.youtube.com/embed/fPRF3bBdooA?rel=0&wmode=transparent\" width=\"560\" height=\"315\" allowfullscreen=\"\" frameborder=\"0\" sandbox=\"allow-scripts allow-same-origin allow-presentation\" layout=\"responsive\"></iframe>', NULL, '2022-10-19 09:36:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_communities`
+--
+
+CREATE TABLE `partner_communities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `partner` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partner_communities`
+--
+
+INSERT INTO `partner_communities` (`id`, `partner`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Community', '<p>Why is is important to engage</p>\r\n\r\n<p>Alongside providing network access and tackling the major digital divide in our operating markets, we have a key role to play in supporting people in the communities where we live and work. We want to maximise the positive impact of our towers through supporting education and digital inclusion and improving access to power and the internet.</p>\r\n\r\n<p>How we engage</p>\r\n\r\n<ul>\r\n	<li>Championed education and ICT skills development opportunities with a focus on supporting women and underserved rural communities through digital inclusion projects in South Africa, Tanzania and Ghana</li>\r\n	<li>Well-established consultation and community engagement during site planning</li>\r\n</ul>', 'uploads/partner/afro1664988212.png', NULL, '2022-10-05 10:43:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_customers`
+--
+
+CREATE TABLE `partner_customers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `partner` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partner_customers`
+--
+
+INSERT INTO `partner_customers` (`id`, `partner`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Customers', '<p>Why is is important to engage</p>\r\n\r\n<p>Our customers are at the centre of everything we do. Our customers choose us to accelerate their growth ambitions and to lower their costs of delivering crucial services. Regular engagement is vital for speed and efficiency of service, and is therefore critical to our customers. Our performance drives theirs in turn.</p>\r\n\r\n<p>How we engage</p>\r\n\r\n<ul>\r\n	<li>Regular meetings and communication</li>\r\n	<li>Customer surveys</li>\r\n	<li>Industry conferences</li>\r\n	<li>Involvement in industry partnership programmes and industry groups</li>\r\n</ul>', 'uploads/partner/afro1664988140.png', NULL, '2022-10-05 10:42:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_environments`
+--
+
+CREATE TABLE `partner_environments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `partner` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partner_environments`
+--
+
+INSERT INTO `partner_environments` (`id`, `partner`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Environment', '<p>Why is is important to engage</p>\r\n\r\n<p>Nurturing a sustainable environment is crucial to the well-being of our communities - the end consumers of mobile technology - and the longterm success of our business. We strive to protect the environment and minimise any negative impact, which is predominantly related to carbon emissions.</p>\r\n\r\n<p>How we engage</p>\r\n\r\n<ul>\r\n	<li>Piloted a new remote monitoring system to optimise site power and efficiency thereby reducing our carbon emissions</li>\r\n	<li>Connected to the grid wherever possible and reliable, and invested in hybrid and solar solutions to reduce our emissions</li>\r\n	<li>Reported to the CDP climate questionnaire for the first time and conducted an initial assessment of climate-related risks and opportunities</li>\r\n</ul>', 'uploads/partner/afro1664988235.png', NULL, '2022-10-05 10:43:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_investors`
+--
+
+CREATE TABLE `partner_investors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `partner` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partner_investors`
+--
+
+INSERT INTO `partner_investors` (`id`, `partner`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Investors', '<p>Why is is important to engage</p>\r\n\r\n<p>Investors have provided the business with the capital to invest. Regular engagement with investors is vital to ensure they understand the business model, strategy, opportunities and risks. This will ensure they continue to provide the funding flexibility required for full execution of the strategy, and in turn enable us to continue to deliver value to their investments.</p>\r\n\r\n<p>How we engage</p>\r\n\r\n<ul>\r\n	<li>Quarterly reporting, including preliminary and half year results</li>\r\n	<li>Annual Report and Sustainable Business Report publications</li>\r\n	<li>RNS announcements</li>\r\n	<li>Annual General Meeting</li>\r\n	<li>Class 1 shareholder circular and General Meeting</li>\r\n	<li>Management conference calls and presentations</li>\r\n	<li>Investor roadshows, conferences and fireside chats</li>\r\n	<li>Sell-side equity research analyst engagement</li>\r\n</ul>', 'uploads/partner/afro1664988193.png', NULL, '2022-10-05 10:43:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_suppliers`
+--
+
+CREATE TABLE `partner_suppliers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `partner` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partner_suppliers`
+--
+
+INSERT INTO `partner_suppliers` (`id`, `partner`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Supplier Partners', '<p>Why is is important to engage</p>\r\n\r\n<p>To develop our supplier relationships into true partnerships takes time and effort by both parties to bring about successful collaborations. We streamline our supplier base so that we can focus on, and invest in, a select few, developing true partnerships that create mutual value. Cultivating sustainable long-term relationships is essential in order to build and maintain assets that need to last for decades.</p>\r\n\r\n<p>How we engage</p>\r\n\r\n<ul>\r\n	<li>Regular business reviews</li>\r\n	<li>Industry training activities</li>\r\n	<li>Industry symposiums</li>\r\n</ul>', 'uploads/partner/afro1664988172.png', NULL, '2022-10-05 10:42:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_workforces`
+--
+
+CREATE TABLE `partner_workforces` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `partner` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `partner_workforces`
+--
+
+INSERT INTO `partner_workforces` (`id`, `partner`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Workforce', '<p>Why is is important to engage</p>\r\n\r\n<p>Our people are a key asset for our business. We nurture and invest in our people by giving them the tools to be effective in their work and by growing their skills as we grow. Our ambition is to build an engaged, happy, creative and productive workforce by fostering an inclusive and collaborative environment that reflects our vision and our values.</p>\r\n\r\n<p>How we engage</p>\r\n\r\n<ul>\r\n	<li>Quarterly town hall meetings and regular business updates</li>\r\n	<li>Training and development, and wellness programmes</li>\r\n	<li>Mobility opportunities across our markets</li>\r\n	<li>Quarterly town hall meetings and regular business updatesCode of ethics and conflict of interest awareness sessions</li>\r\n	<li>Team building and round table events</li>\r\n	<li>Diversity &amp; inclusion initiatives Customers</li>\r\n</ul>', 'uploads/partner/afro1664988116.png', NULL, '2022-10-05 10:41:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partnes`
+--
+
+CREATE TABLE `partnes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  `region_id` int(11) DEFAULT NULL,
+  `location` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `client_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `starting_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `end_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `key_achievement` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `d_image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `regions`
+--
+
+CREATE TABLE `regions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `regions`
+--
+
+INSERT INTO `regions` (`id`, `home`, `company_id`, `name`, `Icon`, `created_at`, `updated_at`) VALUES
+(1, NULL, 1, 'Rasel', NULL, '2022-10-14 10:56:08', NULL),
+(2, NULL, 1, 'EGYPT', NULL, '2022-10-14 10:58:33', NULL),
+(3, NULL, 1, 'MALI', NULL, '2022-10-14 10:58:42', NULL),
+(4, NULL, 1, 'BENIN', NULL, '2022-10-14 10:58:50', NULL),
+(5, NULL, 1, 'COTE VORE', NULL, '2022-10-14 10:58:58', NULL),
+(6, NULL, 1, 'MADAGASCAR', NULL, '2022-10-14 10:59:03', NULL),
+(7, NULL, 1, 'NIGERIA', NULL, '2022-10-14 10:59:08', NULL),
+(8, NULL, 2, 'EGYPT', NULL, '2022-10-14 10:59:24', NULL),
+(9, NULL, 2, 'MALI', NULL, '2022-10-14 10:59:40', NULL),
+(10, NULL, 2, 'BENIN', NULL, '2022-10-14 10:59:48', NULL),
+(11, NULL, 2, 'COTE VORE', NULL, '2022-10-14 11:00:01', NULL),
+(12, NULL, 2, 'MADAGASCAR', NULL, '2022-10-14 11:00:10', NULL),
+(13, NULL, 2, 'NIGERIA', NULL, '2022-10-14 11:00:21', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_countries`
+--
+
+CREATE TABLE `service_countries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `service_slider_id` int(11) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `service_countries`
+--
+
+INSERT INTO `service_countries` (`id`, `service_slider_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'EGYPT', '2022-10-18 10:24:23', NULL),
+(2, NULL, 'MALI', '2022-10-18 10:24:23', NULL),
+(3, 3, 'EGYPT', '2022-10-18 10:37:15', NULL),
+(4, 3, 'MALI', '2022-10-18 10:37:15', NULL),
+(5, 4, 'EGYPT', '2022-10-18 10:39:11', NULL),
+(6, 5, 'sdf', '2022-10-18 10:39:59', NULL),
+(7, 6, 'EGYPT', '2022-10-24 08:09:36', NULL),
+(8, 6, 'MALI', '2022-10-24 08:09:36', NULL),
+(9, 7, 'EGYPT', '2022-10-24 08:20:56', NULL),
+(10, 7, 'MADAGASCAR', '2022-10-24 08:20:56', NULL),
+(11, 7, 'mali', '2022-10-24 08:20:56', NULL),
+(12, 8, 'EGYPT', '2022-10-25 09:19:25', NULL),
+(13, 8, 'bangLADESH', '2022-10-25 09:19:25', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_sliders`
+--
+
+CREATE TABLE `service_sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `home` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `d_image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `service_sliders`
+--
+
+INSERT INTO `service_sliders` (`id`, `home`, `title`, `site`, `description`, `image`, `d_image`, `created_at`, `updated_at`) VALUES
+(2, 1, 'service', NULL, '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'uploads/index/afro1666111016.jpg', 'uploads/index/afro1666111016.jpg', '2022-10-18 10:36:56', NULL),
+(3, 1, 'service', NULL, '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'uploads/index/afro1666111035.jpg', 'uploads/index/afro1666111035.jpg', '2022-10-18 10:37:15', NULL),
+(6, 1, 'service', NULL, '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 'uploads/index/afro1666620575.png', 'uploads/index/afro1666620575.jpg', '2022-10-24 08:09:36', NULL),
+(7, 1, 'service', NULL, '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'uploads/index/afro1666621256.jpg', 'uploads/index/afro1666621256.jpg', '2022-10-24 08:20:56', NULL),
+(8, 1, 'ASD', NULL, '<p>SADASD</p>', 'uploads/index/afro1666711165.jpg', 'uploads/index/afro1666711164.jpg', '2022-10-25 09:19:25', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solutions`
+--
+
+CREATE TABLE `solutions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solutions`
+--
+
+INSERT INTO `solutions` (`id`, `page_name`, `created_at`, `updated_at`) VALUES
+(1, 'solution', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_banners`
+--
+
+CREATE TABLE `solution_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `default` int(11) NOT NULL DEFAULT 0 COMMENT '0 means image one means video 2 for youtube',
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `embedded` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_banners`
+--
+
+INSERT INTO `solution_banners` (`id`, `solution`, `title`, `default`, `image`, `video`, `link`, `embedded`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Solutions', 1, 'uploads/solution/afroBanner1666020229.webp', 'uploads/solution/1666020230.mp4', 'https://www.youtube.com/watch?v=fPRF3bBdooA&ab_channel=RnaR', '<iframe src=\"https://www.youtube.com/embed/fPRF3bBdooA?rel=0&wmode=transparent\" width=\"560\" height=\"315\" allowfullscreen=\"\" frameborder=\"0\" sandbox=\"allow-scripts allow-same-origin allow-presentation\" layout=\"responsive\"></iframe>', NULL, '2022-10-19 09:36:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_builds`
+--
+
+CREATE TABLE `solution_builds` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_builds`
+--
+
+INSERT INTO `solution_builds` (`id`, `solution`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>If our current portfolio doesn&rsquo;t meet your needs, or you need coverage in a particular location, Helios Towers will build a tower for you. At every step, the goal is to deliver the reliability and service you&rsquo;d expect from co-locating with us, and with the versatility that comes with infrastructure suitable for multiple customers.</p>', 'uploads/solution/afroColocation1664987847.jpg', NULL, '2022-10-05 10:37:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_colocations`
+--
+
+CREATE TABLE `solution_colocations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_colocations`
+--
+
+INSERT INTO `solution_colocations` (`id`, `solution`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>Leasing space on one of our existing towers is the most cost-effective and time-efficient way of getting a site on air, and comes with a range of service advantages:</p>\r\n\r\n<ul>\r\n	<li>The best sites. With access to over 8,600 towers in locations chosen for optimal performance conditions, the quality and reach of your coverage is assured.</li>\r\n	<li>Capital preservation. The economies of colocation are compelling: you can save significant new-build capex by consolidating into one of our towers.</li>\r\n	<li>Speed to market. No permitting needed, no environmental assessments, no design and build. It has all been done.</li>\r\n</ul>', 'uploads/solution/afroColocation1664987729.jpg', NULL, '2022-10-05 10:35:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_in_building_solutions`
+--
+
+CREATE TABLE `solution_in_building_solutions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_in_building_solutions`
+--
+
+INSERT INTO `solution_in_building_solutions` (`id`, `solution`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>With high data growth and demanding subscriber requirements, operators need to ensure that coverage and capacity is adequate, especially in dense urban environments. Helios Towers can provide outdoor DAS solutions that help address these challenges while utilising the operators existing active infrastructure.</p>', 'uploads/solution/afroColocation1664987931.png', NULL, '2022-10-05 10:38:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_products`
+--
+
+CREATE TABLE `solution_products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_products`
+--
+
+INSERT INTO `solution_products` (`id`, `solution`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Our products', '<p>Engaging and maintaining strong relationships with our stakeholders is critical to the current and future success of the Company. Whilst we do have mechanisms in place to measure feedback from our stakeholders, we also work proactively to capture feedback to develop our action plans for continuous improvement. The following shows how the Company, as a whole, engages with its stakeholders.</p>', NULL, '2022-10-18 20:51:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_product_sliders`
+--
+
+CREATE TABLE `solution_product_sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_product_sliders`
+--
+
+INSERT INTO `solution_product_sliders` (`id`, `solution`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(2, 1, 'Speed to market', '<p>Engaging and maintaining strong relationships with our stakeholders is critical to the current and future success of the Company. Whilst we do have mechanisms in place to measure feedback from our stakeholders, we also work proactively to capture feedback to develop our</p>', 'uploads/solution/afro1666148937.png', NULL, '2022-10-18 21:08:57'),
+(3, 1, 'Speed to market', '<p>Engaging and maintaining strong relationships with our stakeholders is critical to the current and future success of the Company. Whilst we do have mechanisms in place to measure feedback from our stakeholders, we also work proactively to capture feedback to develop our</p>', 'uploads/solution/afro1666148954.png', NULL, '2022-10-18 21:09:14'),
+(4, 1, 'Speed to market', '<p>Engaging and maintaining strong relationships with our stakeholders is critical to the current and future success of the Company. Whilst we do have mechanisms in place to measure feedback from our stakeholders, we also work proactively to capture feedback to develop our</p>', 'uploads/solution/afro1666148970.png', NULL, '2022-10-18 21:09:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_sales`
+--
+
+CREATE TABLE `solution_sales` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_sales`
+--
+
+INSERT INTO `solution_sales` (`id`, `solution`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>MNOs may have existing portfolios of towers in their markets, a legacy from former rollouts before a TowerCo solution was available. HT is able to acquire these and lease back space to their former owners, while also co-locating other tenants to increase the use of the infrastructure. Indeed, HT pioneered this sale &amp; leaseback approach; we were the first in the African mobile sector to offer it.</p>', 'uploads/solution/afroColocation1664987882.png', NULL, '2022-10-05 10:38:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solution_services`
+--
+
+CREATE TABLE `solution_services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `solution` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solution_services`
+--
+
+INSERT INTO `solution_services` (`id`, `solution`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>At Helios Towers we can also actively manage towers belonging to our customers. In a scenario where a customer may not want a sale &amp; leaseback transaction, HT can run the day to day operations of the site, applying our business excellence practices to improve the tower and its uptime.</p>', 'uploads/solution/afroColocation1664987912.png', NULL, '2022-10-05 10:38:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainabilities`
+--
+
+CREATE TABLE `sustainabilities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainabilities`
+--
+
+INSERT INTO `sustainabilities` (`id`, `page_name`, `created_at`, `updated_at`) VALUES
+(1, 'sustainabilities', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainability_banners`
+--
+
+CREATE TABLE `sustainability_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sustainability` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `default` int(11) NOT NULL DEFAULT 0 COMMENT '0 means image one means video 2 for youtube',
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainability_banners`
+--
+
+INSERT INTO `sustainability_banners` (`id`, `sustainability`, `title`, `default`, `image`, `video`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Sustainability', 1, 'uploads/sustainability/afroBanner1666020547.webp', 'uploads/sustainability/1666020548.mp4', NULL, '2022-10-17 09:29:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainability_drivings`
+--
+
+CREATE TABLE `sustainability_drivings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sustainability` int(11) NOT NULL DEFAULT 1,
+  `title_heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainability_drivings`
+--
+
+INSERT INTO `sustainability_drivings` (`id`, `sustainability`, `title_heading`, `title_one`, `description_one`, `title_two`, `description_two`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Driving business excellence and efficiency', 'Driving Business excellence and efficiency', '<p>Placeholder content for this accordion, which is intended to demonstrate the&nbsp;<code>.accordion-flush</code>&nbsp;class. This is the first item&#39;s accordion body.</p>', 'Case Study - Same Power, Less Fuel', '<p>Placeholder content for this accordion, which is intended to demonstrate the&nbsp;<code>.accordion-flush</code>&nbsp;class. This is the second item&#39;s accordion body. Let&#39;s imagine this being filled with some actual content.</p>', NULL, '2022-10-05 10:47:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainability_governances`
+--
+
+CREATE TABLE `sustainability_governances` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sustainability` int(11) NOT NULL DEFAULT 1,
+  `title_heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainability_governances`
+--
+
+INSERT INTO `sustainability_governances` (`id`, `sustainability`, `title_heading`, `title_one`, `description_one`, `title_two`, `description_two`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Governance', 'Governance', '<p>Placeholder content for this accordion, which is intended to demonstrate the&nbsp;<code>.accordion-flush</code>&nbsp;class. This is the first item&#39;s accordion body.</p>', 'Case Study - Anti-Bribery: 37001 Certification', '<p>Placeholder content for this accordion, which is intended to demonstrate the&nbsp;<code>.accordion-flush</code>&nbsp;class. This is the second item&#39;s accordion body. Let&#39;s imagine this being filled with some actual content.</p>', NULL, '2022-10-05 10:48:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainability_images`
+--
+
+CREATE TABLE `sustainability_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sustainability` int(11) NOT NULL DEFAULT 1,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainability_images`
+--
+
+INSERT INTO `sustainability_images` (`id`, `sustainability`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'uploads/sustainability/afroBanner1664988305.png', NULL, '2022-10-05 10:45:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainability_materials`
+--
+
+CREATE TABLE `sustainability_materials` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sustainability` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_three` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text_four` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainability_materials`
+--
+
+INSERT INTO `sustainability_materials` (`id`, `sustainability`, `title`, `button_text_one`, `button_text_two`, `button_text_three`, `button_text_four`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Key Company Material', 'Afro Group 2021 Sustainable Business Report', 'Afro Group 2021 Sustainable Business Report', 'Afro Group 2021 Sustainable Business Report', 'Afro Group 2021 Sustainable Business Report', 'uploads/sustainability/afro1664988375.png', NULL, '2022-10-05 10:46:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainability_propositions`
+--
+
+CREATE TABLE `sustainability_propositions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sustainability` int(11) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainability_propositions`
+--
+
+INSERT INTO `sustainability_propositions` (`id`, `sustainability`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'sadf asdf', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', 'uploads/sustainability/afro1664988351.png', NULL, '2022-10-05 10:45:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sustainability_sustainables`
+--
+
+CREATE TABLE `sustainability_sustainables` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sustainability` int(11) NOT NULL DEFAULT 1,
+  `title_heading` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_one` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sustainability_sustainables`
+--
+
+INSERT INTO `sustainability_sustainables` (`id`, `sustainability`, `title_heading`, `title_one`, `description_one`, `title_two`, `description_two`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Creating sustainable value', 'Delivering mobile connectivity and development', '<p>Placeholder content for this accordion, which is intended to demonstrate the&nbsp;<code>.accordion-flush</code>&nbsp;class. This is the first item&#39;s accordion body.</p>', 'Supporting our communities', '<p>Placeholder content for this accordion, which is intended to demonstrate the&nbsp;<code>.accordion-flush</code>&nbsp;class. This is the second item&#39;s accordion body. Let&#39;s imagine this being filled with some actual content.</p>', NULL, '2022-10-05 10:48:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s_countries`
+--
+
+CREATE TABLE `s_countries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `s_countries`
+--
+
+INSERT INTO `s_countries` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'EGYPT', '2022-10-24 08:20:56', NULL),
+(2, 'MADAGASCAR', '2022-10-24 08:20:56', NULL),
+(3, 'mali', '2022-10-24 08:20:56', NULL),
+(4, 'bangLADESH', '2022-10-25 09:19:25', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `themes`
+--
+
+CREATE TABLE `themes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `themes`
+--
+
+INSERT INTO `themes` (`id`, `page_name`, `created_at`, `updated_at`) VALUES
+(1, 'Theme\r\n', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `theme_contacts`
+--
+
+CREATE TABLE `theme_contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `theme` int(11) NOT NULL DEFAULT 1,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `theme_contacts`
+--
+
+INSERT INTO `theme_contacts` (`id`, `theme`, `address`, `phone`, `email`, `created_at`, `updated_at`) VALUES
+(1, 1, '(18/1/4) Farrag Mall, Central Axis, 2nd District, 6th Octobar, Giza, Egypt', '(+20) 2 38367340/9', 'info@afrogroup.com', NULL, '2022-10-11 10:04:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `theme_footers`
+--
+
+CREATE TABLE `theme_footers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `theme` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `theme_footers`
+--
+
+INSERT INTO `theme_footers` (`id`, `theme`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'AFRO Telecom was originally formed in 2004 to deliver quality products and services to the MEA cellular network operators. Focusing on the power management niche', NULL, '2022-10-11 09:53:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `theme_logos`
+--
+
+CREATE TABLE `theme_logos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `theme` int(11) NOT NULL DEFAULT 1,
+  `header_logo` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `footer_logo` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin_logo` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fav_icon` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `theme_logos`
+--
+
+INSERT INTO `theme_logos` (`id`, `theme`, `header_logo`, `footer_logo`, `admin_logo`, `fav_icon`, `created_at`, `updated_at`) VALUES
+(1, 1, 'uploads/theme/afro1666006750.png', 'uploads/theme/afro1666006767.png', 'uploads/theme/afro1666006786.png', 'uploads/theme/afro1666006880.png', NULL, '2022-10-17 05:41:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `theme_socialmedia`
+--
+
+CREATE TABLE `theme_socialmedia` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `theme` int(11) NOT NULL DEFAULT 1,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instra` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `theme_socialmedia`
+--
+
+INSERT INTO `theme_socialmedia` (`id`, `theme`, `facebook`, `twitter`, `instra`, `youtube`, `created_at`, `updated_at`) VALUES
+(1, 1, 'https://itisall.testserver.jamtalent.net/', 'https://itisall.testserver.jamtalent.net/', 'https://itisall.testserver.jamtalent.net/', 'https://itisall.testserver.jamtalent.net/', NULL, '2022-10-11 10:16:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_role_id` int(11) NOT NULL DEFAULT 2,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_role_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 1, 'admin', 'admin@admin.com', NULL, '$2y$10$q2qxjXVMLP8susXzVG6i6.I/lQkdq/Jtcf0Av3Z443GkXFGsbPNKC', NULL, '2022-10-11 00:22:39', '2022-10-11 00:22:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE `user_roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', NULL, NULL),
+(2, 'Employee', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `where_we_works`
+--
+
+CREATE TABLE `where_we_works` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `where_we_works`
+--
+
+INSERT INTO `where_we_works` (`id`, `page_name`, `created_at`, `updated_at`) VALUES
+(1, 'Where we are Work', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `where_work_banners`
+--
+
+CREATE TABLE `where_work_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `where_we_work` int(11) NOT NULL DEFAULT 1,
+  `default` int(11) NOT NULL DEFAULT 0 COMMENT '0 means image one means video ',
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `where_work_banners`
+--
+
+INSERT INTO `where_work_banners` (`id`, `where_we_work`, `default`, `title`, `image`, `video`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Where We Works', 'uploads/where-we-work/afroBanner1666019416.webp', 'uploads/where-we-work/1666019418.mp4', NULL, '2022-10-17 09:11:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `where_work_kps`
+--
+
+CREATE TABLE `where_work_kps` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `where_we_work` int(11) NOT NULL DEFAULT 1,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenancy_ratio` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sites` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenants` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `where_work_kps`
+--
+
+INSERT INTO `where_work_kps` (`id`, `where_we_work`, `country`, `tenancy_ratio`, `sites`, `tenants`, `created_at`, `updated_at`) VALUES
+(4, 1, 'Ghana', '1.99x', '1093', '2173', '2022-10-05 10:27:17', NULL),
+(5, 1, 'Congo', '1.99x', '1093', '2173', '2022-10-05 10:28:09', NULL),
+(6, 1, 'DRC', '1.99x', '1093', '2173', '2022-10-05 10:28:34', NULL),
+(7, 1, 'Tanzania', '1.99x', '1093', '2173', '2022-10-05 10:29:04', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `where_work_overviews`
+--
+
+CREATE TABLE `where_work_overviews` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `where_we_work` int(11) NOT NULL DEFAULT 1,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `where_work_overviews`
+--
+
+INSERT INTO `where_work_overviews` (`id`, `where_we_work`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, '<p>We operate today in eight high-growth markets: Tanzania, Democratic Republic of Congo, Congo Brazzaville, Ghana, South Africa, Senegal, Madagascar and Malawi.</p>\r\n\r\n<p>Although our fleet of over 10,500 towers gives extensive geographic reach, our focus lies equally on operational excellence. We constantly seek to drive up uptime and reliability for our customers, while treading lightly for our neighbours and environments.</p>\r\n\r\n<p>As these under-penetrated markets grow, we are also excellently placed to integrate acquisitions and pioneer new services.</p>', 'uploads/where-we-work/afroOver-view1664986933.jpg', NULL, '2022-10-05 10:22:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `where_work_videos`
+--
+
+CREATE TABLE `where_work_videos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `where_we_work` int(11) NOT NULL DEFAULT 1,
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `embedded` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `where_work_videos`
+--
+
+INSERT INTO `where_work_videos` (`id`, `where_we_work`, `link`, `embedded`, `created_at`, `updated_at`) VALUES
+(1, 1, 'https://www.youtube.com/watch?v=9gu2nMF4n_0&ab_channel=HeliosTowers', '<iframe src=\"https://www.youtube.com/embed/9gu2nMF4n_0?rel=0&wmode=transparent\" width=\"560\" height=\"315\" allowfullscreen=\"\" frameborder=\"0\" sandbox=\"allow-scripts allow-same-origin allow-presentation\" layout=\"responsive\"></iframe>', NULL, '2022-10-05 10:19:35');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `abouts`
+--
+ALTER TABLE `abouts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_approach_banners`
+--
+ALTER TABLE `about_approach_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_approach_excellences`
+--
+ALTER TABLE `about_approach_excellences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_approach_integrities`
+--
+ALTER TABLE `about_approach_integrities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_approach_partnerships`
+--
+ALTER TABLE `about_approach_partnerships`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_banners`
+--
+ALTER TABLE `about_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_businessmodel_banners`
+--
+ALTER TABLE `about_businessmodel_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_business_model_market_opportunities`
+--
+ALTER TABLE `about_business_model_market_opportunities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_business_operations`
+--
+ALTER TABLE `about_business_operations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_business_stake_holders`
+--
+ALTER TABLE `about_business_stake_holders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_business_strategies`
+--
+ALTER TABLE `about_business_strategies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_governmance_banners`
+--
+ALTER TABLE `about_governmance_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_governmance_policies`
+--
+ALTER TABLE `about_governmance_policies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_management_teams`
+--
+ALTER TABLE `about_management_teams`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_overview_assets`
+--
+ALTER TABLE `about_overview_assets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_overview_customers`
+--
+ALTER TABLE `about_overview_customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_overview_dos`
+--
+ALTER TABLE `about_overview_dos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_overview_people`
+--
+ALTER TABLE `about_overview_people`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_reports`
+--
+ALTER TABLE `about_reports`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_strategies`
+--
+ALTER TABLE `about_strategies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `footers`
+--
+ALTER TABLE `footers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `header_logos`
+--
+ALTER TABLE `header_logos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `homes`
+--
+ALTER TABLE `homes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_academies`
+--
+ALTER TABLE `index_academies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_approaches`
+--
+ALTER TABLE `index_approaches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_awards`
+--
+ALTER TABLE `index_awards`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_headers`
+--
+ALTER TABLE `index_headers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_header_buttons`
+--
+ALTER TABLE `index_header_buttons`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_partners`
+--
+ALTER TABLE `index_partners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_partner_sliders`
+--
+ALTER TABLE `index_partner_sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_reviews`
+--
+ALTER TABLE `index_reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_review_sliders`
+--
+ALTER TABLE `index_review_sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_services`
+--
+ALTER TABLE `index_services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_solutions`
+--
+ALTER TABLE `index_solutions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_subscribes`
+--
+ALTER TABLE `index_subscribes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `indices`
+--
+ALTER TABLE `indices`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `leaders`
+--
+ALTER TABLE `leaders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `magazines`
+--
+ALTER TABLE `magazines`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `management_teams`
+--
+ALTER TABLE `management_teams`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `media`
+--
+ALTER TABLE `media`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partners`
+--
+ALTER TABLE `partners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_banners`
+--
+ALTER TABLE `partner_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_communities`
+--
+ALTER TABLE `partner_communities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_customers`
+--
+ALTER TABLE `partner_customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_environments`
+--
+ALTER TABLE `partner_environments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_investors`
+--
+ALTER TABLE `partner_investors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_suppliers`
+--
+ALTER TABLE `partner_suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_workforces`
+--
+ALTER TABLE `partner_workforces`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partnes`
+--
+ALTER TABLE `partnes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `regions`
+--
+ALTER TABLE `regions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_countries`
+--
+ALTER TABLE `service_countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_sliders`
+--
+ALTER TABLE `service_sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solutions`
+--
+ALTER TABLE `solutions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_banners`
+--
+ALTER TABLE `solution_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_builds`
+--
+ALTER TABLE `solution_builds`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_colocations`
+--
+ALTER TABLE `solution_colocations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_in_building_solutions`
+--
+ALTER TABLE `solution_in_building_solutions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_products`
+--
+ALTER TABLE `solution_products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_product_sliders`
+--
+ALTER TABLE `solution_product_sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_sales`
+--
+ALTER TABLE `solution_sales`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solution_services`
+--
+ALTER TABLE `solution_services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainabilities`
+--
+ALTER TABLE `sustainabilities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainability_banners`
+--
+ALTER TABLE `sustainability_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainability_drivings`
+--
+ALTER TABLE `sustainability_drivings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainability_governances`
+--
+ALTER TABLE `sustainability_governances`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainability_images`
+--
+ALTER TABLE `sustainability_images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainability_materials`
+--
+ALTER TABLE `sustainability_materials`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainability_propositions`
+--
+ALTER TABLE `sustainability_propositions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sustainability_sustainables`
+--
+ALTER TABLE `sustainability_sustainables`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `s_countries`
+--
+ALTER TABLE `s_countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `themes`
+--
+ALTER TABLE `themes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `theme_contacts`
+--
+ALTER TABLE `theme_contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `theme_footers`
+--
+ALTER TABLE `theme_footers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `theme_logos`
+--
+ALTER TABLE `theme_logos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `theme_socialmedia`
+--
+ALTER TABLE `theme_socialmedia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indexes for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `where_we_works`
+--
+ALTER TABLE `where_we_works`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `where_work_banners`
+--
+ALTER TABLE `where_work_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `where_work_kps`
+--
+ALTER TABLE `where_work_kps`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `where_work_overviews`
+--
+ALTER TABLE `where_work_overviews`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `where_work_videos`
+--
+ALTER TABLE `where_work_videos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `abouts`
+--
+ALTER TABLE `abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_approach_banners`
+--
+ALTER TABLE `about_approach_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_approach_excellences`
+--
+ALTER TABLE `about_approach_excellences`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_approach_integrities`
+--
+ALTER TABLE `about_approach_integrities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_approach_partnerships`
+--
+ALTER TABLE `about_approach_partnerships`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_banners`
+--
+ALTER TABLE `about_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_businessmodel_banners`
+--
+ALTER TABLE `about_businessmodel_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_business_model_market_opportunities`
+--
+ALTER TABLE `about_business_model_market_opportunities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `about_business_operations`
+--
+ALTER TABLE `about_business_operations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `about_business_stake_holders`
+--
+ALTER TABLE `about_business_stake_holders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `about_business_strategies`
+--
+ALTER TABLE `about_business_strategies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_governmance_banners`
+--
+ALTER TABLE `about_governmance_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_governmance_policies`
+--
+ALTER TABLE `about_governmance_policies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_management_teams`
+--
+ALTER TABLE `about_management_teams`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `about_overview_assets`
+--
+ALTER TABLE `about_overview_assets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_overview_customers`
+--
+ALTER TABLE `about_overview_customers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_overview_dos`
+--
+ALTER TABLE `about_overview_dos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_overview_people`
+--
+ALTER TABLE `about_overview_people`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_reports`
+--
+ALTER TABLE `about_reports`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `about_strategies`
+--
+ALTER TABLE `about_strategies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `footers`
+--
+ALTER TABLE `footers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `header_logos`
+--
+ALTER TABLE `header_logos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `homes`
+--
+ALTER TABLE `homes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_academies`
+--
+ALTER TABLE `index_academies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_approaches`
+--
+ALTER TABLE `index_approaches`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_awards`
+--
+ALTER TABLE `index_awards`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_headers`
+--
+ALTER TABLE `index_headers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_header_buttons`
+--
+ALTER TABLE `index_header_buttons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_partners`
+--
+ALTER TABLE `index_partners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_partner_sliders`
+--
+ALTER TABLE `index_partner_sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_reviews`
+--
+ALTER TABLE `index_reviews`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_review_sliders`
+--
+ALTER TABLE `index_review_sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `index_services`
+--
+ALTER TABLE `index_services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_solutions`
+--
+ALTER TABLE `index_solutions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `index_subscribes`
+--
+ALTER TABLE `index_subscribes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `indices`
+--
+ALTER TABLE `indices`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `leaders`
+--
+ALTER TABLE `leaders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `magazines`
+--
+ALTER TABLE `magazines`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `management_teams`
+--
+ALTER TABLE `management_teams`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `media`
+--
+ALTER TABLE `media`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+
+--
+-- AUTO_INCREMENT for table `partners`
+--
+ALTER TABLE `partners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partner_banners`
+--
+ALTER TABLE `partner_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partner_communities`
+--
+ALTER TABLE `partner_communities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partner_customers`
+--
+ALTER TABLE `partner_customers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partner_environments`
+--
+ALTER TABLE `partner_environments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partner_investors`
+--
+ALTER TABLE `partner_investors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partner_suppliers`
+--
+ALTER TABLE `partner_suppliers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partner_workforces`
+--
+ALTER TABLE `partner_workforces`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `partnes`
+--
+ALTER TABLE `partnes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `regions`
+--
+ALTER TABLE `regions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `service_countries`
+--
+ALTER TABLE `service_countries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `service_sliders`
+--
+ALTER TABLE `service_sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `solutions`
+--
+ALTER TABLE `solutions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `solution_banners`
+--
+ALTER TABLE `solution_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `solution_builds`
+--
+ALTER TABLE `solution_builds`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `solution_colocations`
+--
+ALTER TABLE `solution_colocations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `solution_in_building_solutions`
+--
+ALTER TABLE `solution_in_building_solutions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `solution_products`
+--
+ALTER TABLE `solution_products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `solution_product_sliders`
+--
+ALTER TABLE `solution_product_sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `solution_sales`
+--
+ALTER TABLE `solution_sales`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `solution_services`
+--
+ALTER TABLE `solution_services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainabilities`
+--
+ALTER TABLE `sustainabilities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainability_banners`
+--
+ALTER TABLE `sustainability_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainability_drivings`
+--
+ALTER TABLE `sustainability_drivings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainability_governances`
+--
+ALTER TABLE `sustainability_governances`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainability_images`
+--
+ALTER TABLE `sustainability_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainability_materials`
+--
+ALTER TABLE `sustainability_materials`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainability_propositions`
+--
+ALTER TABLE `sustainability_propositions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sustainability_sustainables`
+--
+ALTER TABLE `sustainability_sustainables`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `s_countries`
+--
+ALTER TABLE `s_countries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `themes`
+--
+ALTER TABLE `themes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `theme_contacts`
+--
+ALTER TABLE `theme_contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `theme_footers`
+--
+ALTER TABLE `theme_footers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `theme_logos`
+--
+ALTER TABLE `theme_logos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `theme_socialmedia`
+--
+ALTER TABLE `theme_socialmedia`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `where_we_works`
+--
+ALTER TABLE `where_we_works`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `where_work_banners`
+--
+ALTER TABLE `where_work_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `where_work_kps`
+--
+ALTER TABLE `where_work_kps`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `where_work_overviews`
+--
+ALTER TABLE `where_work_overviews`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `where_work_videos`
+--
+ALTER TABLE `where_work_videos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
